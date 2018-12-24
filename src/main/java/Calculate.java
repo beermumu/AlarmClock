@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Calculate {
     int[] number = {1,2,3,4,5,6,7,8,9};
-    String[] operator = {"+","*"};
+    String[] operator = {"+","*","-","/"};
     private String question;
     private int answer;
     ScriptEngine e = new ScriptEngineManager().getEngineByName("js");
@@ -14,7 +14,7 @@ public class Calculate {
     public Calculate() {
         int a = rand.nextInt(9);
         int b = rand.nextInt(9);
-        int c = rand.nextInt(3);
+        int c = rand.nextInt(4);
         this.question = number[a]+operator[c]+number[b];
         try {
             this.answer = ((Number)e.eval( number[a]+operator[c]+number[b])).intValue();

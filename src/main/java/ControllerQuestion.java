@@ -35,6 +35,7 @@ public class ControllerQuestion {
             Stage bg = (Stage) click.getScene().getWindow();
 
             FXMLLoader p2 = new FXMLLoader(getClass().getResource("firstpage.fxml"));
+
             try {
                 bg.setScene(new Scene((Parent) p2.load(), 500, 300));
                 bg.setTitle("Alarm Alarm V2 2018");

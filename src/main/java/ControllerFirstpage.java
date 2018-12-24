@@ -40,6 +40,8 @@ public class ControllerFirstpage {
     @FXML
     ComboBox hh, mm, ss;
 
+    Stage stage;
+
     @FXML
     void initialize() {
         hh.setItems(hourList);
@@ -67,6 +69,8 @@ public class ControllerFirstpage {
             alarmTime.setText("Alarm Time --> " + hh.getSelectionModel().getSelectedItem().toString() + ":" + mm.getSelectionModel().getSelectedItem().toString() + ":" + ss.getSelectionModel().getSelectedItem().toString());
             statusData.setText("Alarm was Set");
         }
+        Button button = (Button) e.getSource();
+        stage = (Stage) button.getScene().getWindow();
     }
 
     private void initClock() {
@@ -91,10 +95,8 @@ public class ControllerFirstpage {
                         Platform.runLater(() -> {
                             try {
                                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("questionpage.fxml"));
-                                Parent root1 = (Parent) fxmlLoader.load();
-                                Stage stage = new Stage();
+                                stage.setScene(new Scene(fxmlLoader.load()));
                                 stage.setTitle("Answer If You Can");
-                                stage.setScene(new Scene(root1));
                                 stage.show();
                             } catch (Exception e) {
                                 e.printStackTrace();
